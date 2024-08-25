@@ -26,6 +26,10 @@ MAGENTA = (255, 0, 255)
 ORANGE = (255, 165, 0)
 GREY = (155, 155, 155)
 
+clock = pygame.time.Clock()
+fps = 60
+
+
 # Класс для представления фигур Тетриса
 class Tetromino:
     def __init__(self, shape, color):
@@ -173,9 +177,9 @@ class TetrisGame:
                         if not self.valid_space(self.current_piece):
                             self.current_piece.x -= 1
                     elif event.key == pygame.K_DOWN:
-                        self.current_piece.y += 1
+                        self.current_piece.y += 3
                         if not self.valid_space(self.current_piece):
-                            self.current_piece.y -= 1
+                            self.current_piece.y -= 3
                     elif event.key == pygame.K_UP:
                         self.current_piece.rotate()
                         if not self.valid_space(self.current_piece):
@@ -297,3 +301,5 @@ if __name__ == '__main__':
     menu = Menu(screen)
     menu.run()
     pygame.quit()
+    clock.tick(fps)
+
