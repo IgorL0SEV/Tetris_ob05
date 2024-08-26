@@ -27,7 +27,7 @@ ORANGE = (255, 165, 0)
 GREY = (155, 155, 155)
 
 clock = pygame.time.Clock()
-fps = 60
+fps = 120
 
 # Класс для представления фигур Тетриса
 class Tetromino:
