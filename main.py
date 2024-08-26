@@ -1,4 +1,4 @@
-#Tetris
+# Tetris
 import pygame
 import random
 
@@ -28,7 +28,6 @@ GREY = (155, 155, 155)
 
 clock = pygame.time.Clock()
 fps = 60
-
 
 # Класс для представления фигур Тетриса
 class Tetromino:
@@ -143,8 +142,8 @@ class TetrisGame:
 
         pygame.draw.rect(self.screen, RED, (0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), 5)
         font = pygame.font.SysFont('Arial', 20)
-        label = font.render(f'Score: {self.score}', 1, WHITE)
-        max_label = font.render(f'Max Score: {self.max_score}', 1, WHITE)
+        label = font.render(f'Score: {self.score}', 1, GREEN)
+        max_label = font.render(f'Max Score: {self.max_score}', 1, BLUE)
         # Отображение счета
         self.screen.blit(label, (SCREEN_WIDTH - label.get_width() - 10, 10))
         self.screen.blit(max_label, (10, 10))
@@ -223,7 +222,7 @@ class TetrisGame:
         font = pygame.font.SysFont('Arial bold', 40)
         game_over_label = font.render("Game Over", 1, WHITE)
         font = pygame.font.SysFont('Arial bold', 30)
-        score_label = font.render(f'Your Score: {self.score}', 1, BLUE)
+        score_label = font.render(f'Your Score: {self.score}', 1, GREEN)
         max_score_label = font.render(f'Max Score: {self.max_score}', 1, BLUE)
         font = pygame.font.SysFont('Arial', 20)
         restart_label = font.render("Press R to Restart or Q to Quit", 1, GREY)
@@ -245,6 +244,7 @@ class TetrisGame:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     waiting = False
+                    self.run = False
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_r:
                         self.reset_game()
@@ -302,4 +302,3 @@ if __name__ == '__main__':
     menu.run()
     pygame.quit()
     clock.tick(fps)
-
